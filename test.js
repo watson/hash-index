@@ -60,6 +60,11 @@ test('return between 0 and max', function (t) {
   t.end()
 })
 
+test('max zero', function (t) {
+  t.ok(Number.isNaN(hasher('foo', 0)))
+  t.end()
+})
+
 test('max negative', function (t) {
   t.ok(Number.isNaN(hasher('foo', -1)))
   t.end()
