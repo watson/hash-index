@@ -1,7 +1,7 @@
 {
   "name": "hash-index",
   "version": "1.0.0",
-  "description": "A hashing function which outputs integers with a possible max value",
+  "description": "A hashing function which returns integers with a possible max value",
   "main": "index.js",
   "scripts": {
     "test": "standard && tape test.js"
