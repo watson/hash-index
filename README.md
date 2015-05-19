@@ -1,8 +1,9 @@
 # hash-index
 
 A function which will always return the same output given the same
-input. The output is an integer in the range 0..n where `n` is the max
-value given upon initialization of the module.
+input. The output is an integer in the range 0..n. By default `n` is
+infinity-1, but another max value can be provided as an optional 2nd
+argument.
 
 The output is not guaranteed to be unique - only to be predictable based
 on the input.
@@ -20,20 +21,30 @@ npm install hash-index
 ## Usage
 
 ```js
-// initialize with a max output of 100
-var hasher = require('hash-index')(100)
+var hasher = require('hash-index')
 
-hasher('bob')   // => 42
-hasher('alice') // => 65
-hasher('bob')   // => 42
-hasher('alice') // => 65
+// same input => same output
+hasher('bob')   // => 6451042
+hasher('alice') // => 418430673765
+hasher('bob')   // => 6451042
+hasher('alice') // => 418430673765
+```
+
+Using the optional 2nd argument, you can supply an upper limit for the
+returned hash value:
+
+```js
+hasher('bob', 100)   // => 42
+hasher('alice', 100) // => 65
+hasher('bob', 100)   // => 42
+hasher('alice', 100) // => 65
 ```
 
 ## Non-standard Usage
 
-If no `max` value is given, infinity is used as the max value.
+If no `max` value is given, infinity-1 is used as the max value.
 
-If the input is not either a non-empty string, a non-empty array or a
+If the input is neither a non-empty string, a non-empty array nor a
 number, `NaN` will be returned.
 
 ## License
