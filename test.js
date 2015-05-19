@@ -3,7 +3,55 @@
 var test = require('tape')
 var hashIndex = require('./')
 
-test('return integer', function (t) {
+test('no input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isNaN(hasher()))
+  t.end()
+})
+
+test('empty string input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isNaN(hasher('')))
+  t.end()
+})
+
+test('null input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isNaN(hasher(null)))
+  t.end()
+})
+
+test('NaN input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isNaN(hasher(NaN)))
+  t.end()
+})
+
+test('object input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isNaN(hasher({})))
+  t.end()
+})
+
+test('empty array input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isNaN(hasher([])))
+  t.end()
+})
+
+test('full array input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isFinite(hasher([1, 'foo'])))
+  t.end()
+})
+
+test('number input', function (t) {
+  var hasher = hashIndex(10)
+  t.ok(Number.isFinite(hasher(1)))
+  t.end()
+})
+
+test('string input', function (t) {
   var hasher = hashIndex(10)
   t.ok(Number.isFinite(hasher('input')))
   t.end()
@@ -39,5 +87,18 @@ test('same input, same output, but different hashers', function (t) {
   var result = hasher('foo')
   hasher = hashIndex(10)
   t.equal(hasher('foo'), result)
+  t.end()
+})
+
+test('max not given', function (t) {
+  var hasher = hashIndex()
+  t.ok(Number.isFinite(hasher('input')))
+  t.end()
+})
+
+test('max negative', function (t) {
+  t.throws(function () {
+    hashIndex(-1)
+  })
   t.end()
 })

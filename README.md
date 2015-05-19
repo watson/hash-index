@@ -29,6 +29,13 @@ hasher('foo') // => 9
 hasher('bar') // => 73
 ```
 
+## Non-standard Usage
+
+If no `max` value is given, infinity is used as the max value.
+
+If the input is not either a non-empty string, a non-empty array or a
+number, `NaN` will be returned.
+
 ## License
 
 MIT
