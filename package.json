@@ -1,6 +1,6 @@
 {
   "name": "hash-index",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A hashing function which returns integers with a possible max value",
   "main": "index.js",
   "scripts": {
