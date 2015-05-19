@@ -1,21 +1,21 @@
 'use strict'
 
 var test = require('tape')
-var index = require('./')
+var strToIntHash = require('./')
 
 test('return integer', function (t) {
-  var generator = index(10)
-  t.ok(Number.isFinite(generator('seed')))
+  var hasher = strToIntHash(10)
+  t.ok(Number.isFinite(hasher('input')))
   t.end()
 })
 
 test('return between 0 and max', function (t) {
   var max = 10
-  var generator = index(max)
-  var seed = 'seed'
+  var hasher = strToIntHash(max)
+  var input = 'input'
   for (var n = 0; n < 1000; n++) {
-    seed += n
-    var result = generator(seed)
+    input += n
+    var result = hasher(input)
     t.ok(result >= 0)
     t.ok(result < max)
   }
@@ -23,21 +23,21 @@ test('return between 0 and max', function (t) {
 })
 
 test('same input, same output', function (t) {
-  var generator = index(10)
-  t.equal(generator('foo'), generator('foo'))
+  var hasher = strToIntHash(10)
+  t.equal(hasher('foo'), hasher('foo'))
   t.end()
 })
 
 test('different input, different output', function (t) {
-  var generator = index(10)
-  t.notEqual(generator('foo'), generator('bar'))
+  var hasher = strToIntHash(10)
+  t.notEqual(hasher('foo'), hasher('bar'))
   t.end()
 })
 
-test('same input, same output, but different generators', function (t) {
-  var generator = index(10)
-  var result = generator('foo')
-  generator = index(10)
-  t.equal(generator('foo'), result)
+test('same input, same output, but different hashers', function (t) {
+  var hasher = strToIntHash(10)
+  var result = hasher('foo')
+  hasher = strToIntHash(10)
+  t.equal(hasher('foo'), result)
   t.end()
 })
