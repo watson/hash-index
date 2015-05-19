@@ -40,7 +40,7 @@ hasher('bob', 100)   // => 42
 hasher('alice', 100) // => 65
 ```
 
-## Non-standard Usage
+## Input validation
 
 If no `max` value is given, infinity-1 is used as the max value.
 
