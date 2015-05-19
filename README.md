@@ -23,10 +23,10 @@ npm install hash-index
 // initialize with a max output of 100
 var hasher = require('hash-index')(100)
 
-hasher('foo') // => 9
-hasher('bar') // => 73
-hasher('foo') // => 9
-hasher('bar') // => 73
+hasher('bob')   // => 42
+hasher('alice') // => 65
+hasher('bob')   // => 42
+hasher('alice') // => 65
 ```
 
 ## Non-standard Usage
