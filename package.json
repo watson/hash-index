@@ -1,0 +1,15 @@
+{
+  "name": "pseudorandom",
+  "version": "0.0.0",
+  "description": "Pseudorandom number generator with max limit given any seed",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "author": "Thomas Watson Steen <w@tson.dk>",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^3.11.0",
+    "tape": "^4.0.0"
+  }
+}
