@@ -1,7 +1,7 @@
 {
-  "name": "pseudorandom",
+  "name": "hash-index",
   "version": "0.0.0",
-  "description": "Pseudorandom number generator with max limit given any seed",
+  "description": "A hashing function which outputs integers with a possible max value",
   "main": "index.js",
   "scripts": {
     "test": "standard && tape test.js"
@@ -11,5 +11,21 @@
   "devDependencies": {
     "standard": "^3.11.0",
     "tape": "^4.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/watson/hash-index.git"
+  },
+  "keywords": [
+    "hash",
+    "hashing",
+    "rand",
+    "random",
+    "int",
+    "integer"
+  ],
+  "bugs": {
+    "url": "https://github.com/watson/hash-index/issues"
+  },
+  "homepage": "https://github.com/watson/hash-index"
 }

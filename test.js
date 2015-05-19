@@ -1,17 +1,17 @@
 'use strict'
 
 var test = require('tape')
-var strToIntHash = require('./')
+var hashIndex = require('./')
 
 test('return integer', function (t) {
-  var hasher = strToIntHash(10)
+  var hasher = hashIndex(10)
   t.ok(Number.isFinite(hasher('input')))
   t.end()
 })
 
 test('return between 0 and max', function (t) {
   var max = 10
-  var hasher = strToIntHash(max)
+  var hasher = hashIndex(max)
   var input = 'input'
   for (var n = 0; n < 1000; n++) {
     input += n
@@ -23,21 +23,21 @@ test('return between 0 and max', function (t) {
 })
 
 test('same input, same output', function (t) {
-  var hasher = strToIntHash(10)
+  var hasher = hashIndex(10)
   t.equal(hasher('foo'), hasher('foo'))
   t.end()
 })
 
 test('different input, different output', function (t) {
-  var hasher = strToIntHash(10)
+  var hasher = hashIndex(10)
   t.notEqual(hasher('foo'), hasher('bar'))
   t.end()
 })
 
 test('same input, same output, but different hashers', function (t) {
-  var hasher = strToIntHash(10)
+  var hasher = hashIndex(10)
   var result = hasher('foo')
-  hasher = strToIntHash(10)
+  hasher = hashIndex(10)
   t.equal(hasher('foo'), result)
   t.end()
 })
