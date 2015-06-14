@@ -75,6 +75,11 @@ test('max invalid', function (t) {
   t.end()
 })
 
+test('max float', function (t) {
+  t.ok(Number.isNaN(hasher('foo', 42.42)))
+  t.end()
+})
+
 test('with max', function (t) {
   t.test('same input, same output', function (t) {
     t.equal(hasher('foo', 10), hasher('foo', 10))
