@@ -102,3 +102,10 @@ test('max negative', function (t) {
   })
   t.end()
 })
+
+test('expected output', function (t) {
+  var hasher = hashIndex(100)
+  t.equal(hasher('foo'), 99)
+  t.equal(hasher('bar'), 74)
+  t.end()
+})
