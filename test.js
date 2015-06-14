@@ -70,6 +70,11 @@ test('max negative', function (t) {
   t.end()
 })
 
+test('max invalid', function (t) {
+  t.ok(Number.isNaN(hasher('foo', 'bad')))
+  t.end()
+})
+
 test('with max', function (t) {
   t.test('same input, same output', function (t) {
     t.equal(hasher('foo', 10), hasher('foo', 10))
