@@ -46,8 +46,8 @@ If no `max` value is given, infinity-1 is used as the max value.
 
 If `max` is less than `1` then `NaN` will be returned.
 
-If the input is neither a non-empty string, a non-empty array nor a
-number, `NaN` will be returned.
+The input have to be either a non-empty string, a number or a non-empty
+array. If not, `NaN` will be returned.
 
 ## License
 
