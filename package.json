@@ -1,6 +1,6 @@
 {
   "name": "hash-index",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A hashing function which returns integers with a possible max value",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/watson/hash-index",
   "coordinates": [
-    38.1736884,
-    -122.8140849
+    55.666635,
+    12.5796796
   ]
 }
