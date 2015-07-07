@@ -24,20 +24,20 @@ npm install hash-index
 var hasher = require('hash-index')
 
 // same input => same output
-hasher('bob')   // => 6451042
-hasher('alice') // => 418430673765
-hasher('bob')   // => 6451042
-hasher('alice') // => 418430673765
+hasher('bob')   // => 79268366047899
+hasher('alice') // => 90345298322240
+hasher('bob')   // => 79268366047899
+hasher('alice') // => 90345298322240
 ```
 
 Using the optional 2nd argument, you can supply an upper limit for the
 returned hash value:
 
 ```js
-hasher('bob', 100)   // => 42
-hasher('alice', 100) // => 65
-hasher('bob', 100)   // => 42
-hasher('alice', 100) // => 65
+hasher('bob', 100)   // => 99
+hasher('alice', 100) // => 40
+hasher('bob', 100)   // => 99
+hasher('alice', 100) // => 40
 ```
 
 ## Input validation

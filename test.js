@@ -4,37 +4,37 @@ var test = require('tape')
 var hasher = require('./')
 
 test('no input', function (t) {
-  t.ok(Number.isNaN(hasher()))
-  t.end()
-})
-
-test('empty string input', function (t) {
-  t.ok(Number.isNaN(hasher('')))
+  t.throws(function () {
+    hasher()
+  })
   t.end()
 })
 
 test('null input', function (t) {
-  t.ok(Number.isNaN(hasher(null)))
+  t.throws(function () {
+    hasher(null)
+  })
   t.end()
 })
 
 test('NaN input', function (t) {
-  t.ok(Number.isNaN(hasher(NaN)))
+  t.throws(function () {
+    hasher(NaN)
+  })
   t.end()
 })
 
 test('object input', function (t) {
-  t.ok(Number.isNaN(hasher({})))
+  t.throws(function () {
+    hasher({})
+  })
   t.end()
 })
 
-test('empty array input', function (t) {
-  t.ok(Number.isNaN(hasher([])))
-  t.end()
-})
-
-test('full array input', function (t) {
-  t.ok(Number.isFinite(hasher([1, 'foo'])))
+test('array input', function (t) {
+  t.throws(function () {
+    hasher([])
+  })
   t.end()
 })
 
@@ -61,22 +61,30 @@ test('return between 0 and max', function (t) {
 })
 
 test('max zero', function (t) {
-  t.ok(Number.isNaN(hasher('foo', 0)))
+  t.throws(function () {
+    hasher('foo', 0)
+  })
   t.end()
 })
 
 test('max negative', function (t) {
-  t.ok(Number.isNaN(hasher('foo', -1)))
+  t.throws(function () {
+    hasher('foo', -1)
+  })
   t.end()
 })
 
 test('max invalid', function (t) {
-  t.ok(Number.isNaN(hasher('foo', 'bad')))
+  t.throws(function () {
+    hasher('foo', 'bad')
+  })
   t.end()
 })
 
 test('max float', function (t) {
-  t.ok(Number.isNaN(hasher('foo', 42.42)))
+  t.throws(function () {
+    hasher('foo', 42.42)
+  })
   t.end()
 })
 
@@ -112,7 +120,7 @@ test('with different max', function (t) {
 })
 
 test('expected output', function (t) {
-  t.equal(hasher('foo', 100), 99)
-  t.equal(hasher('bar', 100), 74)
+  t.equal(hasher('foo', 100), 97)
+  t.equal(hasher('bar', 100), 24)
   t.end()
 })
